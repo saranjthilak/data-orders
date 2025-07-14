@@ -1,22 +1,65 @@
-## Our approach
+# 🧾 Data Orders
 
-Before answering Olist's CEO request (_"how to improve business margin, given that bad reviews costs a lot of money ?"_), we should investigate what causes bad `review_score`.
+A data engineering pipeline for processing and analyzing order-related datasets using Python, Pandas, and SQL. This project demonstrates clean, modular data workflows including loading, transformation, aggregation, and insights generation.
 
-A good practice for such problem is compute various intermediary tables called **Dimension Tables**, each containing **unique_id** for that dimension, and list **all possible properties of these dimensions** as columns.
+## 🚀 Features
 
-For instance:
-- `orders` table (**id**, review_score, amount, distance between seller and customer...)
-- `sellers` table (**id**, mean_review_score, mean wait time, ...)
-- `products` table: (**id**, mean_review score, categories, colors, sizes...)
-- `customers` table (**id**, some properties of this customer)
-- `reviews` table (**id**, translated text, properties of this text...)
+- ETL pipeline using Python and Pandas
+- SQL-like transformations for business insights
+- Modular code structure for scalability and clarity
+- Output-ready for dashboards or reporting tools
 
-You can think of these as training sets for machine-learning algorithms!
+## 📁 Project Structure
 
-## Let's start with `Orders` 🏋🏽‍♂️
+```text
+data-orders/
+├── data/
+│   ├── orders.csv
+│   └── customers.csv
+├── notebooks/
+│   └── analysis.ipynb
+├── src/
+│   ├── load.py
+│   ├── transform.py
+│   └── main.py
+├── outputs/
+│   └── summary.csv
+├── requirements.txt
+└── README.md
+```
 
-We will create a single DataFrame storing unique `order_id` as index, and all possible properties of these orders as columns.
+## 🛠️ Technologies
 
-We will save our logic needed to return a training set at the order level in `olist/order.py`. This will come in handy for our next modeling phase.
+- Python 3.10+
+- Pandas
+- Jupyter Notebook
+- SQLite (optional for SQL logic testing)
 
-👉 Open `orders.ipynb` and follow the instructions
+## 📊 Example Insights
+
+- Top customers by total spend
+- Average order value over time
+- Most frequent order dates
+- Customer retention patterns
+
+## ✅ Setup Instructions
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/saranjthilak/data-orders.git
+cd data-orders
+```
+📌 TODO
+Add unit tests
+
+Integrate SQL database for intermediate storage
+
+Add Airflow DAG for orchestration
+
+Connect to BI dashboards (e.g., Tableau, Power BI)
+
+👤 Author
+Saran Jaya Thilak
+
+
